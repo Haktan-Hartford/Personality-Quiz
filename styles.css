@@ -1,75 +1,87 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
+ /* styles.css */
+ :root {
+     --color-black: #000000;
+     --color-blue: #00205B; /* Pantone 281 C */
+     --color-green: #046A38; /* PMS 349 C */
+     --color-gray: #a2aaad;   /* Pantone 429 C */
+ }
+ 
 
-.quiz-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-}
+ body {
+     font-family: sans-serif;
+     margin: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-color: var(--color-gray);
+     color: var(--color-black);
+ }
+ 
 
-h1 {
-    text-align: center;
-    color: #333;
-}
+ .quiz-container {
+     background-color: white;
+     width: 80%;
+     max-width: 600px;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
 
-.question-container {
-    margin-bottom: 20px;
-}
+ h1 {
+     text-align: center;
+     color: var(--color-blue);
+ }
+ 
 
-.question {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 10px;
-}
+ .question {
+     margin-bottom: 20px;
+ }
+ 
 
-.answer {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+ .options {
+     display: flex;
+     flex-direction: column;
+ }
+ 
 
-.answer:hover {
-    background-color: #0056b3;
-}
+ button {
+     background-color: var(--color-blue);
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-top: 10px;
+ }
+ 
 
-#results-container {
-    text-align: center;
-}
+ button:hover {
+     background-color: var(--color-green);
+ }
+ 
 
-#results {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-}
+ .results {
+     margin-top: 20px;
+     padding-top: 20px;
+     border-top: 1px solid var(--color-gray);
+ }
+ 
 
-#restart {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
+ .results h2 {
+     color: var(--color-green);
+ }
+ 
 
-#restart:hover {
-    background-color: #1e7e34;
-}
+ .school-recommendations {
+     list-style-type: none;
+     padding: 0;
+ }
+ 
+
+ .school-recommendations li {
+     padding: 10px;
+     margin-bottom: 10px;
+     border-bottom: 1px solid var(--color-gray);
+ }
