@@ -1,114 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hartford High School Match Quiz</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Hartford High School Match</title>
+     <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+     <div class="quiz-container">
+         <h1>Which Hartford High School is Your Best Match?</h1>
+         <div id="question-container" class="question">
+             </div>
+         <button id="next-button">Next</button>
+         <div id="results-container" class="results" style="display: none;">
+             <h2>Your Recommended Schools:</h2>
+             <div id="school-recommendations">
+                 </div>
+         </div>
+     </div>
+     <script src="script.js"></script>
+ </body>
+ </html>
 
-    <div class="quiz-container">
-        <h1>Your Hartford High School Journey</h1>
-        <div id="quiz">
-            <div class="question-container" id="question1">
-                <p class="question">1. What are you most passionate about?</p>
-                <button class="answer" data-choice="a" data-question="1">⚽ Sports</button>
-                <button class="answer" data-choice="b" data-question="1">???? Science</button>
-                <button class="answer" data-choice="c" data-question="1">???? Arts</button>
-                <button class="answer" data-choice="d" data-question="1">???? Helping</button>
-                <button class="answer" data-choice="e" data-question="1">???? Tech</button>
-            </div>
+CSS
 
-            <div class="question-container" id="question2" style="display: none;">
-                <p class="question">2. Which subject do you enjoy the most?</p>
-                <button class="answer" data-choice="a" data-question="2">???? PE</button>
-                <button class="answer" data-choice="b" data-question="2">???? Science</button>
-                <button class="answer" data-choice="c" data-question="2">???? Art/Music</button>
-                <button class="answer" data-choice="d" data-question="2">???? Social Studies</button>
-                <button class="answer" data-choice="e" data-question="2">???? Math/Tech</button>
-            </div>
+ /* styles.css */
+ :root {
+     --color-black: #000000;
+     --color-blue: #00205B; /* Pantone 281 C */
+     --color-green: #046A38; /* PMS 349 C */
+     --color-gray: #a2aaad;   /* Pantone 429 C */
+ }
+ 
 
-          <div class="question-container" id="question3" style="display: none;">
-                <p class="question">3. What activities after school?</p>
-                <button class="answer" data-choice="a" data-question="3">???? Sports Clubs</button>
-                <button class="answer" data-choice="b" data-question="3">???? STEM Clubs</button>
-                <button class="answer" data-choice="c" data-question="3">???? Drama</button>
-                <button class="answer" data-choice="d" data-question="3">❤️ Volunteering</button>
-                <button class="answer" data-choice="e" data-question="3">???? Robotics</button>
-            </div>
+ body {
+     font-family: sans-serif;
+     margin: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-color: var(--color-gray);
+     color: var(--color-black);
+ }
+ 
 
-          <div class="question-container" id="question4" style="display: none;">
-                <p class="question">4. How do you learn best?</p>
-                <button class="answer" data-choice="a" data-question="4">???? Active</button>
-                <button class="answer" data-choice="b" data-question="4">???? Exploring</button>
-                <button class="answer" data-choice="c" data-question="4">✍️ Creative</button>
-                <button class="answer" data-choice="d" data-question="4">????️ Discussing</button>
-                <button class="answer" data-choice="e" data-question="4">????️ Building</button>
-            </div>
+ .quiz-container {
+     background-color: white;
+     width: 80%;
+     max-width: 600px;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
 
-             <div class="question-container" id="question5" style="display: none;">
-                <p class="question">5. What do you see yourself doing in the future?</p>
-                <button class="answer" data-choice="a" data-question="5">???? Athlete</button>
-                <button class="answer" data-choice="b" data-question="5">????‍⚕️ Doctor</button>
-                <button class="answer" data-choice="c" data-question="5">????‍???? Artist</button>
-                <button class="answer" data-choice="d" data-question="5">????‍???? Teacher</button>
-                <button class="answer" data-choice="e" data-question="5">????‍???? Programmer</button>
-            </div>
+ h1 {
+     text-align: center;
+     color: var(--color-blue);
+ }
+ 
 
-             <div class="question-container" id="question6" style="display: none;">
-                <p class="question">6. Pick a word that describes you best:</p>
-                <button class="answer" data-choice="a" data-question="6">???? Competitive</button>
-                <button class="answer" data-choice="b" data-question="6">???? Curious</button>
-                <button class="answer" data-choice="c" data-question="6">???? Creative</button>
-                <button class="answer" data-choice="d" data-question="6">???? Caring</button>
-                <button class="answer" data-choice="e" data-question="6">???? Innovative</button>
-            </div>
+ .question {
+     margin-bottom: 20px;
+ }
+ 
 
-              <div class="question-container" id="question7" style="display: none;">
-                <p class="question">7.  What's your favorite way to spend your free time?</p>
-                <button class="answer" data-choice="a" data-question="7">????️ Sports</button>
-                <button class="answer" data-choice="b" data-question="7">???? Documentaries</button>
-                <button class="answer" data-choice="c" data-question="7">????️ Drawing</button>
-                <button class="answer" data-question="7">???? Helping</button>
-                <button class="answer" data-choice="e" data-question="7">???? Video Games</button>
-            </div>
+ .options {
+     display: flex;
+     flex-direction: column;
+ }
+ 
 
-               <div class="question-container" id="question8" style="display: none;">
-                <p class="question">8. Which sounds most exciting?</p>
-                <button class="answer" data-choice="a" data-question="8">???? Winning</button>
-                <button class="answer" data-choice="b" data-question="8">✨ Discovery</button>
-                <button class="answer" data-choice="c" data-question="8">???? Performing</button>
-                <button class="answer" data-choice="d" data-question="8">????️ Community</button>
-                <button class="answer" data-choice="e" data-question="8">???? Inventing</button>
-            </div>
+ button {
+     background-color: var(--color-blue);
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-top: 10px;
+ }
+ 
 
-                <div class="question-container" id="question9" style="display: none;">
-                <p class="question">9. What kind of high school environment would you prefer?</p>
-                <button class="answer" data-choice="a" data-question="9">???? School Spirit</button>
-                <button class="answer" data-choice="b" data-question="9">???? Advanced Programs</button>
-                <button class="answer" data-choice="c" data-question="9">???? Creative Opportunities</button>
-                <button class="answer" data-choice="d" data-question="9">???? Close-Knit</button>
-                <button class="answer" data-choice="e" data-question="9">???? Innovation</button>
-            </div>
+ button:hover {
+     background-color: var(--color-green);
+ }
+ 
 
-                 <div class="question-container" id="question10" style="display: none;">
-                <p class="question">10. Which program is most interesting?</p>
-                <button class="answer" data-choice="a" data-question="10">???? NHL Program</button>
-                <button class="answer" data-choice="b" data-question="10">???? STEM</button>
-                <button class="answer" data-choice="c" data-question="10">???? Performing Arts</button>
-                <button class="answer" data-choice="d" data-question="10">⚖️ Social Justice</button>
-                <button class="answer" data-choice="e" data-question="10">???? Career/Technical</button>
-            </div>
+ .results {
+     margin-top: 20px;
+     padding-top: 20px;
+     border-top: 1px solid var(--color-gray);
+ }
+ 
 
-            <div id="results-container" style="display: none;">
-                <h2>Your Ideal High School Path:</h2>
-                <p id="results"></p>
-                <button id="restart">Try Again</button>
-            </div>
-        </div>
-    </div>
+ .results h2 {
+     color: var(--color-green);
+ }
+ 
 
-    <script src="script.js"></script>
-</body>
-</html>
+ .school-recommendations {
+     list-style-type: none;
+     padding: 0;
+ }
+ 
+
+ .school-recommendations li {
+     padding: 10px;
+     margin-bottom: 10px;
+     border-bottom: 1px solid var(--color-gray);
+ }
